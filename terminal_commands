@@ -1,0 +1,33 @@
+MAVPROXY:
+mavproxy.py --master=udpin:0.0.0.0:14550 --out=udpout:127.0.0.1:14552 --out=udpout:127.0.0.1:14549 --out=udpout:127.0.0.1:14555
+
+14549 -> flight script
+14552 -> tower app
+14555 -> Acquiring vehicle attributes
+
+NETCAT (to Solo Controller):
+nc 10.1.1.1 5502
+
+TOWER APP:
+tower udpin:127.0.0.1:14552
+
+
+
+Solo CLI and SSH:
+
+WIFI -> 
+solo wifi --name=SHAW-3D8BE0 --password=25115C011348
+
+MOVING FILES TO SOLO ->
+rsync -avz Path/localFile root@10.1.10:/path
+
+SSH -> 
+
+root@10.1.1.10
+Password: TjSDBkAu
+
+Starting dronekit-sitl (in invermere)
+
+dronekit-sitl solo-2.0.20 --home=50.511161,-116.017431,500,0
+
+
