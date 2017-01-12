@@ -1,15 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-"""
-© Copyright 2015-2016, 3D Robotics.
-simple_goto.py: GUIDED mode "simple goto" example (Copter Only)
-
-Demonstrates how to arm and takeoff in Copter and how to navigate to points using Vehicle.simple_goto.
-
-Full documentation is provided at http://python.dronekit.io/examples/simple_goto.html
-"""
-
 from dronekit import connect, VehicleMode, LocationGlobalRelative, LocationGlobal
 from pymavlink import mavutil
 import time
@@ -323,7 +314,7 @@ time.sleep(10)
 
 vehicle.groundspeed=3
 
-
+#targetLocation = 
 targetLocation = get_location_metres(home, 0, -50)
 
 print("Target Position: 0m North/South, 50m West")
