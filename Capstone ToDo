@@ -1,0 +1,38 @@
+1. Complete/Decide on video analytics feature for drone
+
+2. Embed a maps (Google, Bing, whatever) application into a Java application.
+	a) Allow user to click on a location within the map and extract the Lon. Lat. coordinates from webapp, into Java application
+
+3. Connect to Solo through ssh, within the Java application.
+	a) ssh with user -> root@10.1.1.10
+	b) password -> TjSDBkAu
+	c) Move to folder with video analytic script (e.g., 'cd scripts/video)
+	d) Execute analytic scripts with any needed arguments (e.g., 'python detectBodies.py -arg1 -arg2')
+	e) Monitor print statements from python scripts and store needed data into JSON file (ex. print statement could return 'Body Count: 0' or 'Body Count: 1'. Parse each printed string for the 0 or 1 values)
+	f) Close ssh connection when mission complete
+
+4. Create a GUI for the user
+	a) Setup page
+		i) Embedded map application
+		ii) Checkbox list with analytic features (only have one for now)
+		iii) Launch/Start Mission Button (Exits current page and loads second page)
+			1. This will execute multiple command line scripts
+				a) mavproxy.py --master=udpin:0.0.0.0:14550 --out=udpout:127.0.0.1:14552 --out=udpout:127.0.0.1:14549 --out=udpout:127.0.0.1:14555
+				b) tower udpin:127.0.0.1:14552
+				c) python flightScript.py
+				d) python vehicleStats.py
+				e) python detectBodies.py (within ssh) 
+	b) Control page
+		i) GUI for displaying vehicle attributes fetched by the vehicleStats.py script. Loops/updates every 'x' interval
+		ii) Embed the tower app to view real time drone location on Bing map (requires internet connection. If testing outdoors without connection, this will not work, unless using cell as a Wi-Fi hotspot)
+		iii) Abort button (Acts as RTH (return to home))
+		iv) Embed a VLC stream of what drone is seeing (right now, only able to do either analytics, or stream. Sponsor stated that a video stream isn't necessecary to have the stream viewable, however will still try to find a fix)
+
+5. Have VTSCADA poll JSON file being written and updated by Java application on each 'x' interval.
+
+6. Set a flag within VTSCADA when variable BodyCount > 0
+
+*Still doesn't have to be body count. Could just use a bright colored object and try to detect that. It should be easier than body detection.
+
+
+ 
