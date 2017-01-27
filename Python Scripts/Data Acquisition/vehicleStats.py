@@ -27,7 +27,7 @@ while vehicle.armed:
 	print " Mode: %s" % vehicle.mode.name
 	time.sleep(2)
 
-
+sys.stdout.flush()
 
 
 vehicle.close()

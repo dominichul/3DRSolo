@@ -1,9 +1,9 @@
-1. Complete/Decide on video analytics feature for drone
+1. Complete/Decide on video analytics feature for drone - Nick, Dominic
 
-2. Embed a maps (Google, Bing, whatever) application into a Java application.
+2. Embed a maps (Google, Bing, whatever) application into a Java application. - Nick, Dominic
 	a) Allow user to click on a location within the map and extract the Lon. Lat. coordinates from webapp, into Java application
 
-3. Connect to Solo through ssh, within the Java application.
+3. Connect to Solo through ssh, within the Java application. - Szymon 
 	a) ssh with user -> root@10.1.1.10
 	b) password -> TjSDBkAu
 	c) Move to folder with video analytic script (e.g., 'cd scripts/video)
@@ -11,7 +11,7 @@
 	e) Monitor print statements from python scripts and store needed data into JSON file (ex. print statement could return 'Body Count: 0' or 'Body Count: 1'. Parse each printed string for the 0 or 1 values)
 	f) Close ssh connection when mission complete
 
-4. Create a GUI for the user
+4. Create a GUI for the user - Veronica, Brandon
 	a) Setup page
 		i) Embedded map application
 		ii) Checkbox list with analytic features (only have one for now)
