@@ -9,16 +9,16 @@ public class JavaSSH {
 		// Server config
 		String remoteHostName = "127.0.0.1";
 		String remoteHostUserName = "crazymao";
-		String remoteHostpassword = "thetasigma";
+		String remoteHostpassword = "password";
 
-		String scriptLaunchCommand = "python /Users/crazymao/Desktop/Capstone/script.py";
+		String scriptLaunchCommand = "python script.py";
 
 		try {
 			// New jsch instance
 			JSch jsch = new JSch();
 
 			// Set known ssh hosts, otherwise it complains
-			jsch.setKnownHosts("/Users/crazymao/.ssh/known_hosts");
+			jsch.setKnownHosts("~/.ssh/known_hosts");
 
 			// Create ssh session using server config above and port 22
 			Session session = jsch.getSession(remoteHostUserName, remoteHostName, 22);
